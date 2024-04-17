@@ -13,3 +13,11 @@ CREATE TABLE Teachers (
     DateOfBirth DATE,
     Address TEXT
 );
+
+CREATE TABLE Staff (
+    StaffID AUTOINCREMENT PRIMARY KEY,
+    Name TEXT,
+    Position TEXT,
+    DateOfBirth DATE,
+    Address TEXT
+);
