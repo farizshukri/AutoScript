@@ -21,3 +21,10 @@ CREATE TABLE Staff (
     DateOfBirth DATE,
     Address TEXT
 );
+
+CREATE TABLE Users (
+    UserID AUTOINCREMENT PRIMARY KEY,
+    Username TEXT,
+    Password TEXT,
+    Role TEXT -- Possible values: Admin, Student, Teacher, Staff
+);
