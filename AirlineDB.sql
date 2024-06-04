@@ -23,3 +23,8 @@ CREATE TABLE Reservations (
     SeatsReserved INT,
     FOREIGN KEY (FlightID) REFERENCES Flights(FlightID)
 );
+INSERT INTO Flights (FlightNumber, Origin, Destination, DepartureDate, ArrivalDate, AvailableSeats, ClassType)
+VALUES ('FL123', 'New York', 'Los Angeles', '2024-08-10', '2024-08-10', 100, 'Economy');
+
+INSERT INTO Flights (FlightNumber, Origin, Destination, DepartureDate, ArrivalDate, AvailableSeats, ClassType)
+VALUES ('FL456', 'London', 'New York', '2024-09-15', '2024-09-16', 50, 'Business');
