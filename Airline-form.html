@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Airline Reservation System</title>
+</head>
+<body>
+    <h1>Airline Reservation System</h1>
+
+    <h2>Check Flight Availability</h2>
+    <form id="checkAvailabilityForm">
+        <label for="flightNumber">Flight Number:</label>
+        <input type="text" id="flightNumber" name="flightNumber" required>
+        <button type="button" onclick="checkAvailability()">Check Availability</button>
+    </form>
+    <div id="availabilityResult"></div>
+
+    <h2>Book a Ticket</h2>
+    <form id="bookTicketForm">
+        <label for="flightID">Flight ID:</label>
+        <input type="number" id="flightID" name="flightID" required><br><br>
+        
+        <label for="customerName">Customer Name:</label>
+        <input type="text" id="customerName" name="customerName" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="seats">Seats:</label>
+        <input type="number" id="seats" name="seats" required><br><br>
+
+        <button type="button" onclick="bookTicket()">Book Ticket</button>
+    </form>
+    <div id="bookingResult"></div>
+
+    <script>
+        function checkAvailability() {
+            var flightNumber = document.getElementById('flightNumber').value;
+            var formData = new FormData();
+            formData.append('action', 'checkAvailability');
+            formData.append('flightNumber', flightNumber);
+
+            fetch('FlightServlet', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('availabilityResult').innerText = data;
+            })
+            .catch(error => console.error('Error:', error));
+        }
+
+        function bookTicket() {
+            var flightID = document.getElementById('flightID').value;
+            var customerName = document.getElementById('customerName').value;
+            var email = document.getElementById('email').value;
+            var seats = document.getElementById('seats').value;
+
+            var formData = new FormData();
+            formData.append('action', 'bookTicket');
+            formData.append('flightID', flightID);
+            formData.append('customerName', customerName);
+            formData.append('email', email);
+            formData.append('seats', seats);
+
+            fetch('FlightServlet', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('bookingResult').innerText = data;
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>
