@@ -24,3 +24,14 @@ CREATE TABLE Marks (
     FOREIGN KEY (StudentID) REFERENCES Students(StudentID),
     FOREIGN KEY (SubjectID) REFERENCES Subjects(SubjectID)
 );
+
+INSERT INTO Students (Name, Class) VALUES ('Alice', '10th');
+INSERT INTO Students (Name, Class) VALUES ('Bob', '10th');
+
+INSERT INTO Subjects (SubjectName) VALUES ('Math');
+INSERT INTO Subjects (SubjectName) VALUES ('English');
+
+INSERT INTO Marks (StudentID, SubjectID, MarksObtained) VALUES (1, 1, 90);
+INSERT INTO Marks (StudentID, SubjectID, MarksObtained) VALUES (1, 2, 85);
+INSERT INTO Marks (StudentID, SubjectID, MarksObtained) VALUES (2, 1, 78);
+INSERT INTO Marks (StudentID, SubjectID, MarksObtained) VALUES (2, 2, 82);
